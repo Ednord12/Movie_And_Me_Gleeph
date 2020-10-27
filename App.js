@@ -1,15 +1,17 @@
+import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import Search from './Components/Search'
+import Root from './/Navigation/Root'
 
 export default function App() {
   return (
-    <View style={styles.search}>
+   /* <View style={styles.search}>
       <Search />
-      <View  style={styles.container}>
-
-      </View>
-    </View>
+      
+    </View>*/
+    <NavigationContainer>
+      <Root/>
+    </NavigationContainer>
   );
 }
 
