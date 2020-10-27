@@ -15,11 +15,13 @@ export default class Search extends React.Component {
         this.totalPage=0
         this.currentPage=0
 
-    }
+    }  
+    _displayFilmDetails=(id)=>{
+            console.log('film selected= ' + id)
+        }
 
     render() {
         //const films =[{'key':'a','kez':'d'}]
-
         return (
             <View>
                 <StatusBar style="auto" />
@@ -30,18 +32,20 @@ export default class Search extends React.Component {
                 onEndReached={()=>this._search()}
                     data={this.state.film}
                     keyExtractor={item => item.id.toString()}
-                    renderItem={({ item }) => <FilmsItem films={item} />}
+                    renderItem={({ item }) => <FilmsItem films={item}  displayFilmDetails={this._displayFilmDetails} />}
                 />
                 { this._displayLoader()}
             </View>
         )
     }
+   
     _loadFilms()
     {
+        console.log("loading....")
         if(this.searchText)
         this.setState({film:[]},()=>{
             this.currentPage=0
-            this.totalPage=0
+            this.totalPage=1
             this._search()
 
         })
@@ -58,6 +62,8 @@ export default class Search extends React.Component {
     }
 
     _search() {
+        console.log(this.currentPage,this.totalPage)
+
         if(this.currentPage< this.totalPage){
 
             console.log("searching")

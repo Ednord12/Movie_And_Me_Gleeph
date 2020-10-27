@@ -2,12 +2,14 @@ import React from 'react'
 import {getMovieImageUrl} from '../Api/movieApi'
 
 import { View, Image, Text, StyleSheet } from 'react-native'
+import { TouchableOpacity } from 'react-native-gesture-handler'
 
 export default class FilmItem extends React.Component {
     render() {
-        const films = this.props.films
+        const { films, displayFilmDetails } = this.props
+        console.log(displayFilmDetails)
         return (
-            <View style={styles.container}>
+            <TouchableOpacity style={styles.container} onPress={()=>displayFilmDetails(films.id)}>
                 <Image style={styles.image} source={{uri:getMovieImageUrl(films.poster_path)}}>
 
                 </Image>
@@ -24,7 +26,7 @@ export default class FilmItem extends React.Component {
 
 
                 </View>
-            </View>
+            </TouchableOpacity>
         )
     }
 }
