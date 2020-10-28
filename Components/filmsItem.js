@@ -7,7 +7,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler'
 export default class FilmItem extends React.Component {
     render() {
         const { films, displayFilmDetails } = this.props
-        console.log(displayFilmDetails)
+       // console.log(displayFilmDetails)
         return (
             <TouchableOpacity style={styles.container} onPress={()=>displayFilmDetails(films.id)}>
                 <Image style={styles.image} source={{uri:getMovieImageUrl(films.poster_path)}}>

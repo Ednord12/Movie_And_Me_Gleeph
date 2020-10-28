@@ -14,3 +14,12 @@ export function getMovieImageUrl(name)
   //  console.log('https://image.tmdb.org/t/p/w300'+name)
     return 'https://image.tmdb.org/t/p/w300' +name
 }
+export function getMovieDetails(id){
+  const url= 'https://api.themoviedb.org/3/movie/' + id + '?api_key=' + API_TOKEN + '&language=fr'
+  console.log(url)
+  
+  return fetch(url)
+  .then(data=>{return data.json()})
+  .catch(error=>console.log(error))
+
+}

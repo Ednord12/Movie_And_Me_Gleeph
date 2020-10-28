@@ -17,7 +17,9 @@ export default class Search extends React.Component {
 
     }  
     _displayFilmDetails=(id)=>{
-            console.log('film selected= ' + id)
+            //console.log( this.props)
+            this.props.navigation.navigate("FilmDetails",{filmId:id})
+            
         }
 
     render() {
